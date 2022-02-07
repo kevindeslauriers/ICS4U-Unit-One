@@ -8,14 +8,21 @@
          border-radius: 5px;
       }
    </style>
+
+   <script>
+      function test() {
+         let el = document.getElementById('test');
+         el.style.display = "none";
+      }
+   </script>
 </head>
 
 <body>
    <!-- Headings-->
-   <h1>This is a Header</h1>
+   <h1 onmouseover="test();">This is a Header</h1>
    <h2>This is a Header</h2>
    <h3>This is a Header</h3>
-   <h4 id="test">This is a Header</h4>
+   <h4 id="test">This is a Header4</h4>
    <h5>This is a Header</h5>
    <h6>This is a Header</h6>
 
