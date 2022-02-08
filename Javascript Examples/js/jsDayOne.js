@@ -105,6 +105,13 @@ for (let name of names) {
    console.log(name);
 }
 
+
+// for of is for arrays (to iterate through the values of the array)
+
+// for in is for map/objects and it allows you to iterate through the properties
+// you can get the value using obj[prop]
+
+
 //const colours = [];
 const colours = Array();
 colours.push('red');
@@ -112,11 +119,53 @@ colours.push('green');
 colours.push('yellow');
 
 
+const marks = [80, 87, 92, 88];
+// Map/Object
 
 
+let student = {};
+student.name = 'Jack Spratt';
+student.id = '1126804';
+student.marks = marks;
+/*
+student.average = function () {
+   let totalMarks = 0;
+   for (let mark of this.marks) {
+      totalMarks += mark;
+   }
+
+   return totalMarks / this.marks.length;
+}
+
+console.log(student.average());
+*/
+
+// iterate through a map
+
+// properties that are variables can go in [] instead of using the . operator
+for (let prop in student) {
+   if (typeof student[prop] !== 'function')
+      console.log(student[prop]);
+}
+
+console.log(student['id']);
 
 
+// JSON and JSON methods
+// JSON stands for Javascript Object Notation
 
+const jsonString = JSON.stringify(names);
+
+console.log(names);
+console.log(jsonString);
+
+const jsonString2 = '["hello", "steve", "paper"]';
+console.log(JSON.parse(jsonString2));
+
+// JSON.parse converts a JSON string into the appropriate object / array
+// JSON.stringify converts the array or object into a JSON string.
+
+console.log(JSON.stringify(student));
 
 
 
