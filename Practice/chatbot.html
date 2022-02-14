@@ -9,11 +9,13 @@
    <script>
       function submit() {
          let msg = document.querySelector('#chat').value;
+
          let container = document.querySelector("#chatBox");
          let section = document.createElement('section');
          section.classList.add('section');
          let p = document.createElement('p');
-         p.innerHTML = msg;
+         p.innerHTML = msg.length > 8 ? msg.substring(0, 8) + '...' : msg;
+         p.title = msg;
          section.appendChild(p);
          container.appendChild(section);
 
