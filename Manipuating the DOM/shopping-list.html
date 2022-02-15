@@ -25,7 +25,9 @@
    <div>
       <label for="item">Enter a new item:</label>
       <input type="text" name="item" id="item">
-      <button>Add item</button>
+      <button id="addItem">Add item</button>
+
+      <!--<button onclick="addItem();">Add item</button>-->
    </div>
 
    <ul>
@@ -33,7 +35,41 @@
    </ul>
 
    <script>
+      const input = document.querySelector('#item');
+      const btn = document.querySelector('#addItem');
+      const itemList = document.querySelector('ul');
 
+      const addItem = function addItem() {
+         const itemText = input.value;
+         if (itemText !== undefined && itemText !== '') {
+            const li = document.createElement('li');
+            li.textContent = itemText;
+            itemList.appendChild(li);
+
+            const delButton = document.createElement('button');
+            delButton.textContent = 'DELETE';
+
+            delButton.addEventListener('click', function () {
+               delButton.parentElement.remove();
+            });
+            li.appendChild(delButton);
+
+
+            input.value = '';
+            item.focus();
+         }
+      }
+
+      /* we are passing in a callback function  - when we click we call the function that was passed in */
+
+      btn.addEventListener('click', addItem);
+      /*
+         btn.onclick = function addItem() {
+            console.log('Adding Item...');
+         }
+      */
+
+      input.focus();
    </script>
 </body>
 
