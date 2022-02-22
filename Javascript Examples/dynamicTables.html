@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dynamic Table</title>
+   <style>
+      table {
+         border-collapse: collapse;
+      }
+
+      td,
+      th {
+         border: 1px solid #999;
+         padding: 0.5rem;
+         text-align: left;
+      }
+   </style>
+
+</head>
+
+<body>
+   <button id="clickme">Click me</button>
+   <div id="table">
+      <table id="datatable">
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Category</th>
+               <th>Start</th>
+               <th>End</th>
+            </tr>
+         </thead>
+         <tbody></tbody>
+      </table>
+   </div>
+
+   <script>
+      const companies = [{
+            name: "Company One",
+            category: "Finance",
+            start: 1981,
+            end: 2004
+         },
+         {
+            name: "Company Two",
+            category: "Retail",
+            start: 1992,
+            end: 2008
+         },
+         {
+            name: "Company Three",
+            category: "Auto",
+            start: 1999,
+            end: 2007
+         },
+         {
+            name: "Company Four",
+            category: "Retail",
+            start: 1989,
+            end: 2010
+         },
+         {
+            name: "Company Five",
+            category: "Technology",
+            start: 2009,
+            end: 2014
+         },
+         {
+            name: "Company Six",
+            category: "Finance",
+            start: 1987,
+            end: 2010
+         },
+         {
+            name: "Company Seven",
+            category: "Auto",
+            start: 1986,
+            end: 1996
+         },
+         {
+            name: "Company Eight",
+            category: "Technology",
+            start: 2011,
+            end: 2016
+         },
+         {
+            name: "Company Nine",
+            category: "Retail",
+            start: 1981,
+            end: 1989
+         }
+      ];
+
+      const btn = document.querySelector('button');
+
+
+      function createTable() {
+         const tbody = document.querySelector('tbody');
+
+
+         companies.forEach(r => {
+            const row = document.createElement('tr');
+            tbody.appendChild(row);
+            for (let key in r) {
+               const cell = document.createElement('td');
+               cell.textContent = r[key];
+               row.appendChild(cell);
+            }
+
+         });
+      }
+      btn.addEventListener('click', createTable);
+   </script>
+</body>
+
+</html>
