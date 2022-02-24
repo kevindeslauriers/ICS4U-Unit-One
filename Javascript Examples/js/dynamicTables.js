@@ -76,18 +76,18 @@ function createTable() {
       }
    });
 }
-const sortCategory = () => {
-   //isCategorySort = true;
+const sort = (evt) => {
+   let sortField = evt.currentTarget.id;
    console.log(1);
    if (categorySortDir !== 'asc') {
       categorySortDir = 'asc';
       companies = masterList.sort((a, b) => {
-         return (a.category > b.category) ? 1 : (a.category === b.category ? 0 : -1);
+         return (a[sortField] > b[sortField]) ? 1 : (a[sortField] === b[sortField] ? 0 : -1);
       });
    } else {
       categorySortDir = 'desc';
       companies = masterList.sort((a, b) => {
-         return (a.category < b.category) ? 1 : (a.category === b.category ? 0 : -1);
+         return (a[sortField] < b[sortField]) ? 1 : (a[sortField] === b[sortField] ? 0 : -1);
       });
    }
 
@@ -107,7 +107,8 @@ const filter = () => {
 search.addEventListener('keyup', filter);
 
 
-const catHeader = document.querySelector('#category');
-catHeader.addEventListener('click', sortCategory);
+document.querySelectorAll('th').forEach((th) => th.addEventListener('click', sort));
+
+
 
 
