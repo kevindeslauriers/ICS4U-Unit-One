@@ -168,7 +168,6 @@ module.exports = class LinkedList {
       if (this.tail !== null)
          console.log(this.tail.element);
    }
-
 }
 
 
