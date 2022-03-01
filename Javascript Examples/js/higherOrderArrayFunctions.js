@@ -136,11 +136,12 @@ const str = ['a', 'b', 'c'].reduce((prev, curr) => prev + curr, '');
 console.log(str);
 */
 
-const ages = ages
+const ages1 = ages
    .map(age => age * 2)
    .filter(age => age >= 40)
    .sort((a, b) => a - b);
 /*.reduce((a, b) => a + b, 0);*/
 
-console.log(combined);
+console.log(ages1);
+
 
