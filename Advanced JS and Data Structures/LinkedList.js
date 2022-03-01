@@ -165,7 +165,8 @@ module.exports = class LinkedList {
    }
 
    getTail() {
-      console.log(this.tail.element);
+      if (this.tail !== null)
+         console.log(this.tail.element);
    }
 
 }
