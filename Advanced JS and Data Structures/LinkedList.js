@@ -89,9 +89,6 @@ module.exports = class LinkedList {
          this.size--;
          return toGo.element;
       }
-
-
-
    }
 
    // removes a given element from the list and return it - if not there return -1
@@ -146,14 +143,14 @@ module.exports = class LinkedList {
       return this.head === null;
    }
 
-   // display the size of the list
-   size_of_list() {
-      console.log(this.size);
+   getSize() {
+      return this.size;
    }
 
 
    // prints the list items
    printList() {
+
       let curr = this.head;
       while (curr !== null && curr.next !== null) {
          console.log(curr.element);
