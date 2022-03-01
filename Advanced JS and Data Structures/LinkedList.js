@@ -8,6 +8,7 @@ class Node {
 module.exports = class LinkedList {
    constructor() {
       this.head = null;
+      this.tail = null;
       this.size = 0;
    }
 
@@ -18,6 +19,7 @@ module.exports = class LinkedList {
 
       if (this.isEmpty()) {
          this.head = node;
+         this.tail = node;
       } else {
          let curr = this.head;
          for (let i = 0; i < this.size - 1; i++) {
@@ -25,6 +27,7 @@ module.exports = class LinkedList {
             curr = curr.next;
          }
          curr.next = node;
+         this.tail = node;
       }
       this.size++;
    }
@@ -52,6 +55,9 @@ module.exports = class LinkedList {
             node.next = curr;
             prev.next = node;
          }
+
+         if (index == this.size)
+            this.tail = node;
          this.size++;
       }
 
@@ -72,11 +78,16 @@ module.exports = class LinkedList {
             for (let i = 0; i < index - 1; i++) {  // i becomes 1
                curr = curr.next;
             }
-            toGo = curr.next;
+            toGo = curr.next.element;
+            if (index === this.size - 1) {
+               this.tail = curr;
+            }
             curr.next = curr.next.next;
+
+
          }
          this.size--;
-         return toGo;
+         return toGo.element;
       }
 
 
@@ -100,6 +111,9 @@ module.exports = class LinkedList {
                prev.next = current.next;
             }
             this.size--;
+
+            if (current.next === null)
+               this.tail = prev;
             return current.element;
          }
          prev = current;
@@ -148,6 +162,10 @@ module.exports = class LinkedList {
 
       if (curr !== null)
          console.log(curr.element);
+   }
+
+   getTail() {
+      console.log(this.tail.element);
    }
 
 }
