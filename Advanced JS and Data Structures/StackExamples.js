@@ -8,3 +8,5 @@ s.push(10);
 s.display();
 console.log(s.pop());
 s.display();
+
+console.log(s.peek());

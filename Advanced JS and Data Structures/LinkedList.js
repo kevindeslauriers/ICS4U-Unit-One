@@ -143,6 +143,25 @@ module.exports = class LinkedList {
       return this.head === null;
    }
 
+
+   elementAt(index) {
+      if (index >= this.size || index < 0) {
+         console.log(`Invalid index ${index} in the linked list of size ${this.size}`);
+      } else {
+
+         if (index == 0)
+            return this.head.element;
+
+         let curr = this.head;
+         for (let i = 0; i < index; i++) {
+            curr = curr.next;
+         }
+
+         return curr.element;
+      }
+   }
+
+
    getSize() {
       return this.size;
    }
@@ -164,6 +183,12 @@ module.exports = class LinkedList {
    getTail() {
       if (this.tail !== null)
          console.log(this.tail.element);
+   }
+
+   clear() {
+      this.head = null;
+      this.tail = null;
+      this.size = 0;
    }
 }
 

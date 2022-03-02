@@ -6,7 +6,7 @@ module.exports = class Stack {
    }
 
    push(element) {
-      this.stack.add(element, 0);
+      this.stack.insertAt(element, 0);
    }
 
    pop() {
@@ -21,9 +21,17 @@ module.exports = class Stack {
       return this.stack.isEmpty();
    }
 
+   peek() {
+      return this.stack.elementAt(0);
+   }
+
    display() {
       console.log('TOP');
       this.stack.printList();
+   }
+
+   clear() {
+      this.stack.clear();
    }
 
 
