@@ -54,6 +54,65 @@ module.exports = class BST {
       }
    }
 
+   remove(data) {
+      // root is re-initialized with
+      // root of a modified tree.
+      this.root = this.removeNode(this.root, data);
+   }
+
+
+   removeNode(node, val) {
+
+      // if the root is null then tree is
+      // empty
+      if (node === null)
+         return null;
+
+      // if data to be delete is less than
+      // roots data then move to left subtree
+      else if (val < node.val) {
+         node.left = this.removeNode(node.left, val);
+         return node;
+      }
+
+      // if data to be delete is greater than
+      // roots data then move to right subtree
+      else if (val > node.val) {
+         node.right = this.removeNode(node.right, val);
+         return node;
+      }
+
+      // if data is similar to the root's data
+      // then delete this node
+      else {
+         // deleting node with no children
+         if (node.left === null && node.right === null) {
+            node = null;
+            return node;
+         }
+
+         // deleting node with one children
+         if (node.left === null) {
+            node = node.right;
+            return node;
+         }
+
+         else if (node.right === null) {
+            node = node.left;
+            return node;
+         }
+
+         // Deleting node with two children
+         // minimum node of the right subtree
+         // is stored in aux
+         var minVal = this.findMin(node.right);
+         node.val = minVal;
+
+         node.right = this.removeNode(node.right, minVal);
+         return node;
+      }
+   }
+
    findMax() {
       let curr = this.root;
       while (curr.right !== null) {
